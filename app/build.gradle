@@ -9,6 +9,12 @@ android {
         targetSdkVersion target_sdk_version.toInteger()
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -21,6 +27,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+
     api project(':base')
     api project(':login')
     api project(':share')

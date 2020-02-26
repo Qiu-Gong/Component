@@ -2,6 +2,7 @@ package com.qiugong.component;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.qiugong.base.AppConfig;
 import com.qiugong.base.BaseApp;
 
@@ -14,8 +15,17 @@ public class MainApplication extends BaseApp {
     public void onCreate() {
         super.onCreate();
 
+        if (isDebug()) {
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+
         initModuleApp(this);
         initModuleData(this);
+    }
+
+    private boolean isDebug() {
+        return BuildConfig.DEBUG;
     }
 
     @Override
