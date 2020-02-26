@@ -1,2 +1,2 @@
-include ':app', ':login'
+include ':app', ':login', ':share'
 rootProject.name='ComponentDemo'
