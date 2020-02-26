@@ -1,26 +1,39 @@
 package com.qiugong.share;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.qiugong.connector.ServiceFactory;
 
+@Route(path = "/share/share")
 public class ShareActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
-
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                share();
+                ARouter.getInstance().build("/login/login").navigation();
             }
         });
+
+        if (getIntent() != null) {
+            String content = getIntent().getStringExtra("share_content");
+            if (!TextUtils.isEmpty(content)) {
+                ((TextView) findViewById(R.id.share_context)).setText(content);
+            }
+        }
+
+        share();
     }
 
     private void share() {

@@ -19,6 +19,7 @@ public class MainApplication extends BaseApp {
             ARouter.openLog();
             ARouter.openDebug();
         }
+        ARouter.init(this);
 
         initModuleApp(this);
         initModuleData(this);
