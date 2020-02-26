@@ -30,6 +30,6 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 
     api project(':base')
-    api project(':login')
-    api project(':share')
+    runtimeOnly project(':login')
+    runtimeOnly project(':share')
 }
