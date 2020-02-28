@@ -1,2 +1,2 @@
-include ':app', ':login', ':share', ':base', ':connector'
+include ':app', ':login', ':share', ':base', ':connector', ':router_annotation', ':router_compiler', ':router_core'
 rootProject.name='ComponentDemo'

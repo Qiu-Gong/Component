@@ -32,4 +32,7 @@ dependencies {
     api project(':base')
     runtimeOnly project(':login')
     runtimeOnly project(':share')
+
+    annotationProcessor project(':router_compiler')
+    api project(':router_core')
 }
